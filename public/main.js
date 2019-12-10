@@ -14,24 +14,24 @@ var t = d.getTime();
 var counter = t;
 
 document.getElementById("form").addEventListener("submit",(e)=>{
-  var task= document.getElementById("task").value;
+  var name= document.getElementById("name").value;
   var description = document.getElementById("description").value;
   e.preventDefault();
-  createTask(task,description);
+  createName(name,description);
   form.reset();
 });
 
-function createTask(taskName,description) {
+function createName(newName,description) {
   counter+=1;
-  var task={
+  var name={
     id:counter,
-    task: taskName,
+    name: newName,
     description:description
   }
-  let db=firebase.database().ref("tasks/"+counter);
-  db.set(task);
+  let db=firebase.database().ref("names/"+counter);
+  db.set(name);
   document.getElementById("cardSection").innerHTML='';
-  readTask();
+  readName();
   const toast = Swal.mixin({
       toast:true,
       position: 'top-end',
@@ -40,26 +40,26 @@ function createTask(taskName,description) {
     });
     toast({
       type: 'success',
-      title: 'Task added !'
+      title: 'name added !'
     });
 }
-function readTask(){
-  var task= firebase.database().ref("tasks/");
-  task.on("child_added",function(data){
-      var taskValue=data.val();
+function readName(){
+  var name= firebase.database().ref("names/");
+  name.on("child_added",function(data){
+      var nameValue=data.val();
 
       document.getElementById("cardSection").innerHTML+=`
         <div class="card">
             <div class="card-content">
-            <span class="card-title"> ${taskValue.task}</span>
-            <p>${taskValue.description}</p>
+            <span class="card-title"> ${nameValue.name}</span>
+            <p>${nameValue.description}</p>
             </div>
             <div class="card-action">
-              <button type="submit" style="color:white" class="#f57f17 yellow darken-4 btn" onclick="updateTask(${taskValue.id},'${taskValue.task}','${taskValue.description}')">
-              <i class="fas fa-edit"></i> Edit Task
+              <button type="submit" style="color:white" class="#f57f17 yellow darken-4 btn" onclick="updateName(${nameValue.id},'${nameValue.name}','${nameValue.description}')">
+              <i class="fas fa-edit"></i> Edit Name
               </button>
-              <button type="submit"  class="#b71c1c red darken-4 btn" onclick="deleteTask(${taskValue.id})">
-              <i class="fas fa-trash-alt"></i> Delete Task
+              <button type="submit"  class="#b71c1c red darken-4 btn" onclick="deleteName(${nameValue.id})">
+              <i class="fas fa-trash-alt"></i> Delete Name
               </button>
             </div>
         </div>
@@ -72,39 +72,39 @@ function reset(){
   <div class="card">
         <div class="card-content">
           <form id="form">
-            <label class="card-title" white-text>Task</label>
-            <input type="text" white-text id="task" placeholder="Task">
+            <label class="card-title" white-text>Name</label>
+            <input type="text" white-text id="name" placeholder="Name">
             
             <br>
             <br>
             <button type="submit" id="button1" class="#00c853 green accent-4 btn">
-              <i class="fas fa-plus"></i> ADD TASK
+              <i class="fas fa-plus"></i> ADD NAME
             </button>
           </form>
         </div>
       </div>
   `;
   document.getElementById("form").addEventListener("submit",(e)=>{
-    var task= document.getElementById("task").value;
+    var name= document.getElementById("name").value;
     var description= document.getElementById("description").value;
     e.preventDefault();
-    createTask(task,description);
+    createName(name,description);
     form.reset();
   });
 }
-function updateTask(id,name,description){
+function updateName(id,name,description){
   document.getElementById("firstSection").innerHTML=`
   <div class="card">
   <div class="card-content">
     <form id="form2">
-      <label class="card-title" white-text>Task</label>
-      <input type="text" white-text id="task" placeholder="Task">
+      <label class="card-title" white-text>Name</label>
+      <input type="text" white-text id="name" placeholder="Name">
       <label class="card-title" white-text>Description</label>
       <input type="text" white-text id="description" placeholder="Description">
       <br>
       <br>
       <button type="submit" id="button2" class="#303f9f indigo darken-2 btn">
-        <i class="fas fa-sync"></i> UPDATE TASK
+        <i class="fas fa-sync"></i> UPDATE NAME
       </button>
       <button type="submit" id="button3" class="btn">
         <i class="fas fa-ban"></i> CANCEL 
@@ -121,21 +121,21 @@ function updateTask(id,name,description){
     reset();
   });
   document.getElementById("button2").addEventListener("click",(e)=>{
-    updateTask2(id,document.getElementById("task").value,document.getElementById("description").value);
+    updateName2(id,document.getElementById("name").value,document.getElementById("description").value);
   });
-  document.getElementById("task").value=name;
+  document.getElementById("name").value=name;
   document.getElementById("description").value=description;
 }
-function updateTask2(id,name,description){
-  var taskUpdated={
-    task:name,
+function updateName2(id,name,description){
+  var nameUpdated={
+    name:name,
     id:id,
     description:description
   }
-  let db=firebase.database().ref("tasks/"+id);
-  db.set(taskUpdated);
+  let db=firebase.database().ref("names/"+id);
+  db.set(nameUpdated);
   document.getElementById("cardSection").innerHTML='';
-  readTask();
+  readName();
   reset();
   const toast = Swal.mixin({
     toast:true,
@@ -145,16 +145,16 @@ function updateTask2(id,name,description){
   });
   toast({
     type: 'success',
-    title: 'Task updated !'
+    title: 'Name updated !'
   });
 }
 
-function deleteTask(id){
-  var task= firebase.database().ref("tasks/"+id);
-  task.remove();
+function deleteName(id){
+  var name= firebase.database().ref("names/"+id);
+  name.remove();
   reset();
   document.getElementById("cardSection").innerHTML='';
-  readTask();
+  readName();
   const toast = Swal.mixin({
     toast:true,
     position: 'top-end',
@@ -163,6 +163,6 @@ function deleteTask(id){
   });
   toast({
     type: 'success',
-    title: 'Task deleted !'
+    title: 'Name deleted !'
   });
 }
