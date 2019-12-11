@@ -15,18 +15,20 @@ var counter = t;
 
 document.getElementById("form").addEventListener("submit",(e)=>{
   var name= document.getElementById("name").value;
-  var description = document.getElementById("description").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
   e.preventDefault();
-  createName(name,description);
+  createName(name,email,phone);
   form.reset();
 });
 
-function createName(newName,description) {
+function createName(newName,email,phone) {
   counter+=1;
   var name={
     id:counter,
     name: newName,
-    description:description
+    email:email,
+    phone:phone
   }
   let db=firebase.database().ref("names/"+counter);
   db.set(name);
@@ -52,10 +54,11 @@ function readName(){
         <div class="card">
             <div class="card-content">
             <span class="card-title"> ${nameValue.name}</span>
-            <p>${nameValue.description}</p>
+            <p>${nameValue.email}</p>
+            <p>${nameValue.phone}</p>
             </div>
             <div class="card-action">
-              <button type="submit" style="color:white" class="#f57f17 yellow darken-4 btn" onclick="updateName(${nameValue.id},'${nameValue.name}','${nameValue.description}')">
+              <button type="submit" style="color:white" class="#f57f17 yellow darken-4 btn" onclick="updateName(${nameValue.id},'${nameValue.name}','${nameValue.email}',${nameValue.phone}')">
               <i class="fas fa-edit"></i> Edit Name
               </button>
               <button type="submit"  class="#b71c1c red darken-4 btn" onclick="deleteName(${nameValue.id})">
@@ -86,21 +89,24 @@ function reset(){
   `;
   document.getElementById("form").addEventListener("submit",(e)=>{
     var name= document.getElementById("name").value;
-    var description= document.getElementById("description").value;
+    var email= document.getElementById("email").value;
+    var phone= document.getElementById("phone").value;
     e.preventDefault();
-    createName(name,description);
+    createName(name,email,phone);
     form.reset();
   });
 }
-function updateName(id,name,description){
+function updateName(id,name,email,phone){
   document.getElementById("firstSection").innerHTML=`
   <div class="card">
   <div class="card-content">
     <form id="form2">
       <label class="card-title" white-text>Name</label>
       <input type="text" white-text id="name" placeholder="Name">
-      <label class="card-title" white-text>Description</label>
-      <input type="text" white-text id="description" placeholder="Description">
+      <label class="card-title" white-text>email</label>
+      <input type="text" white-text id="email" placeholder="Email">
+      <label class="card-title" white-text>phone</label>
+      <input type="text" white-text id="phone" placeholder="Phone">
       <br>
       <br>
       <button type="submit" id="button2" class="#303f9f indigo darken-2 btn">
@@ -121,16 +127,18 @@ function updateName(id,name,description){
     reset();
   });
   document.getElementById("button2").addEventListener("click",(e)=>{
-    updateName2(id,document.getElementById("name").value,document.getElementById("description").value);
+    updateName2(id,document.getElementById("name").value,document.getElementById("email").value,document.getElementById("phone").value);
   });
   document.getElementById("name").value=name;
-  document.getElementById("description").value=description;
+  document.getElementById("email").value=email;
+  document.getElementById("phone").value=phone;
 }
-function updateName2(id,name,description){
+function updateName2(id,name,email,phone){
   var nameUpdated={
     name:name,
     id:id,
-    description:description
+    email:email,
+    phone:phone
   }
   let db=firebase.database().ref("names/"+id);
   db.set(nameUpdated);
