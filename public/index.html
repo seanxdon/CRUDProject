@@ -14,20 +14,26 @@
       <a href="#" style="text-align: center;" class="brand-logo">CRUD Project</a>
     </div>
   </nav>
-  <div class="row">
-    <div style=" color: #fff; text-align: center; font-size: 60px" class="col s12">Contact Management</div>
-  </div>
 <div class="row">
-  <div class="col s12 " id="firstSection">
+  <div style=" color: #fff; text-align: center; font-size: 60px" class="col s12">Contact Management</div>
+</div>
+<div class="tab center-align">
+  <button class="tablinks waves-effect waves-light btn green accent-4" onclick="openTab(event, 'add')">Add New Contact</button>
+  <button class="tablinks waves-effect waves-light btn green accent-4" onclick="openTab(event, 'list')">List of Contacts</button>
+</div>
+<br>
+<br>
+<div class="row">
+  <div class="col s12 tabcontent" id="add">
     <div class="card">
       <div class="card-content">
         <form id="form">
           <label class="card-title" white-text>Name</label>
           <input type="text" white-text id="name" placeholder="Name">
           <label class="card-title" white-text>Email</label>
-          <input type="text" white-text id="email" placeholder="Email">
+          <input type="text" pattern="username@server.domain" white-text id="email" placeholder="Email">
           <label class="card-title" white-text>Phone</label>
-          <input type="text" white-text id="phone" placeholder="Phone">
+          <input type="number" maxlength="10" pattern="\d{10}" white-text id="phone" placeholder="Phone">
           <br>
           <br>
           <button type="submit" id="button1" class="#00c853 green accent-4 btn">
@@ -37,9 +43,24 @@
       </div>
     </div>
   </div>
-  <div class="col s12 " id="cardSection"> </div>
+    <div class="col s12" id="cardSection"></div>
 </div>
 
+<script>
+  function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+</script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>

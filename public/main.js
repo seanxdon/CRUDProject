@@ -22,6 +22,13 @@ document.getElementById("form").addEventListener("submit",(e)=>{
   form.reset();
 });
 
+$('input#phone').on('input propertychange paste', function (e) {
+  var reg = /^0+/gi;
+  if (this.value.match(reg)) {
+      this.value = this.value.replace(reg, '');
+  }
+});
+
 function createName(newName,email,phone) {
   counter+=1;
   var name={
@@ -74,16 +81,16 @@ function readName(){
 // ************* RESET NAME SECTION ********//
 
 function reset(){
-  document.getElementById("firstSection").innerHTML=`
+  document.getElementById("add").innerHTML=`
   <div class="card">
         <div class="card-content">
           <form id="form">
             <label class="card-title" white-text>Name</label>
             <input type="text" white-text id="name" placeholder="Name">
             <label class="card-title" white-text>email</label>
-            <input type="text" white-text id="email" placeholder="email">
+            <input type="text" pattern="username@server.domain" white-text id="email" placeholder="Email">
             <label class="card-title" white-text>phone</label>
-            <input type="text" white-text id="phone" placeholder="phone">
+            <input type="number" maxlength="10" pattern="\d{10}" white-text id="phone" placeholder="Phone">
             <br>
             <br>
             <button type="submit" id="button1" class="#00c853 green accent-4 btn">
@@ -101,18 +108,20 @@ function reset(){
     createName(name,email,phone);
     form.reset();
   });
+
+
 }
 function updateName(id,name,email,phone){
-  document.getElementById("firstSection").innerHTML=`
+  document.getElementById("add").innerHTML=`
   <div class="card">
   <div class="card-content">
     <form id="form2">
       <label class="card-title" white-text>Name</label>
       <input type="text" white-text id="name" placeholder="Name">
       <label class="card-title" white-text>email</label>
-      <input type="text" white-text id="email" placeholder="email">
+      <input type="text" pattern="username@server.domain" white-text id="email" placeholder="Email">
       <label class="card-title" white-text>phone</label>
-      <input type="text" white-text id="phone" placeholder="phone">
+      <input type="number" maxlength="10" pattern="\d{10}" white-text id="phone" placeholder="Phone">
       <br>
       <br>
       <button type="submit" id="button2" class="#303f9f indigo darken-2 btn">
