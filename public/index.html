@@ -6,44 +6,45 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <title>CRUD Demo</title>
+  <title>CRUD Project</title>
 </head>
-<body class="grey darken-4" onload="readName()">
+<body class="grey darken-1" onload="readName()">
   <nav>
-    <div class="nav-wrapper orange accent-3">
-      <a href="#" class="brand-logo">CRUD Demo</a>
+    <div class="#00c853 nav-wrapper green accent-4">
+      <a href="#" style="text-align: center;" class="brand-logo">CRUD Project</a>
     </div>
   </nav>
   <div class="row">
-    <div class="col s12 m6" id="firstSection">
-      <div class="card">
-        <div class="card-content">
-          <form id="form">
-            <label class="card-title" white-text>Name</label>
-            <input type="text" white-text id="name" placeholder="Name">
-            <label class="card-title" white-text>Email</label>
-            <input type="text" white-text id="email" placeholder="Email">
-            <label class="card-title" white-text>Phone</label>
-            <input type="text" white-text id="phone" placeholder="Phone">
-            <br>
-            <br>
-            <button type="submit" id="button1" class="#00c853 green accent-4 btn">
-              <i class="fas fa-plus"></i> SUBMIT
-            </button>
-          </form>
-        </div>
+    <div style=" color: #fff; text-align: center; font-size: 60px" class="col s12">Contact Management</div>
+  </div>
+<div class="row">
+  <div class="col s12 " id="firstSection">
+    <div class="card">
+      <div class="card-content">
+        <form id="form">
+          <label class="card-title" white-text>Name</label>
+          <input type="text" white-text id="name" placeholder="Name">
+          <label class="card-title" white-text>Email</label>
+          <input type="text" white-text id="email" placeholder="Email">
+          <label class="card-title" white-text>Phone</label>
+          <input type="text" white-text id="phone" placeholder="Phone">
+          <br>
+          <br>
+          <button type="submit" id="button1" class="#00c853 green accent-4 btn">
+            <i class="fas fa-plus"></i> SUBMIT
+          </button>
+        </form>
       </div>
     </div>
-
-    <div class="col s12 m6" id="cardSection">
-
-    </div>
-
   </div>
+  <div class="col s12 " id="cardSection"> </div>
+</div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.33.1/dist/sweetalert2.all.min.js"></script>
+  <script src="/__/firebase/7.5.2/firebase-main.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

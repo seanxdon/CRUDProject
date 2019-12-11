@@ -58,7 +58,7 @@ function readName(){
             <p>${nameValue.phone}</p>
             </div>
             <div class="card-action">
-              <button type="submit" style="color:white" class="#f57f17 yellow darken-4 btn" onclick="updateName(${nameValue.id},'${nameValue.name}','${nameValue.email}',${nameValue.phone}')">
+              <button type="submit" style="color:white" class="#f57f17 yellow darken-4 btn" onclick="updateName(${nameValue.id},'${nameValue.name}','${nameValue.email}','${nameValue.phone}')">
               <i class="fas fa-edit"></i> Edit Name
               </button>
               <button type="submit"  class="#b71c1c red darken-4 btn" onclick="deleteName(${nameValue.id})">
@@ -70,6 +70,9 @@ function readName(){
       `
   });
 }
+
+// ************* RESET NAME SECTION ********//
+
 function reset(){
   document.getElementById("firstSection").innerHTML=`
   <div class="card">
@@ -77,7 +80,10 @@ function reset(){
           <form id="form">
             <label class="card-title" white-text>Name</label>
             <input type="text" white-text id="name" placeholder="Name">
-            
+            <label class="card-title" white-text>email</label>
+            <input type="text" white-text id="email" placeholder="email">
+            <label class="card-title" white-text>phone</label>
+            <input type="text" white-text id="phone" placeholder="phone">
             <br>
             <br>
             <button type="submit" id="button1" class="#00c853 green accent-4 btn">
@@ -104,21 +110,21 @@ function updateName(id,name,email,phone){
       <label class="card-title" white-text>Name</label>
       <input type="text" white-text id="name" placeholder="Name">
       <label class="card-title" white-text>email</label>
-      <input type="text" white-text id="email" placeholder="Email">
+      <input type="text" white-text id="email" placeholder="email">
       <label class="card-title" white-text>phone</label>
-      <input type="text" white-text id="phone" placeholder="Phone">
+      <input type="text" white-text id="phone" placeholder="phone">
       <br>
       <br>
       <button type="submit" id="button2" class="#303f9f indigo darken-2 btn">
         <i class="fas fa-sync"></i> UPDATE NAME
       </button>
       <button type="submit" id="button3" class="btn">
-        <i class="fas fa-ban"></i> CANCEL 
+        <i class="fas fa-ban"></i> CANCEL
       </button>
     </form>
   </div>
 </div>
-  
+
   `;
   document.getElementById("form2").addEventListener("submit",(e)=>{
     e.preventDefault();
