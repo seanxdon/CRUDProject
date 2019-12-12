@@ -1,4 +1,13 @@
  // Initialize Firebase
+ var config = {
+  apiKey: "AIzaSyAx8S90WUXNDuAgIwe_O9IfytWQ0TnSur0",
+  authDomain: "crudmaterial-b8d0f.firebaseapp.com",
+  databaseURL: "https://crudmaterial-b8d0f.firebaseio.com",
+  projectId: "crudmaterial-b8d0f",
+  storageBucket: "",
+  messagingSenderId: "555877914999"
+};
+firebase.initializeApp(config);
 
 var d= new Date();
 var t = d.getTime();

@@ -31,7 +31,7 @@
           <label class="card-title" white-text>Name</label>
           <input type="text" white-text id="name" placeholder="Name">
           <label class="card-title" white-text>Email</label>
-          <input type="text" pattern="username@server.domain" white-text id="email" placeholder="Email">
+          <input type="text"pattern="username@server.domain" white-text id="email" placeholder="Email">
           <label class="card-title" white-text>Phone</label>
           <input type="number" maxlength="10" pattern="\d{10}" white-text id="phone" placeholder="Phone">
           <br>
@@ -62,29 +62,10 @@
   }
 </script>
 
-<script>
- let contact = [];
-        const addContact = (ev)=>{
-            ev.preventDefault();  //to stop the form submitting
-            let contact = {
-                name:  document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value
-            }
-            contacts.push(contact);
-            document.forms[0].reset(); // to clear the form for the next entries
-            //document.querySelector('form').reset();
-            //for display purposes only
-            console.warn('added' , {contacts} );
-            let pre = document.querySelector('#msg pre');
-            pre.textContent = '\n' + JSON.stringify(contacts, '\t', 2);
-            //saving to localStorage
-            localStorage.setItem('MyContactList', JSON.stringify(contacts) );
-        }
-        document.addEventListener('DOMContentLoaded', ()=>{
-            document.getElementById('button1').addEventListener('click', addContact);
-        });
-</script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.33.1/dist/sweetalert2.all.min.js"></script>
+  <script src="/__/firebase/7.5.2/firebase-main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
