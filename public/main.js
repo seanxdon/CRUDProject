@@ -1,13 +1,4 @@
  // Initialize Firebase
- var config = {
-  apiKey: "AIzaSyAx8S90WUXNDuAgIwe_O9IfytWQ0TnSur0",
-  authDomain: "crudmaterial-b8d0f.firebaseapp.com",
-  databaseURL: "https://crudmaterial-b8d0f.firebaseio.com",
-  projectId: "crudmaterial-b8d0f",
-  storageBucket: "",
-  messagingSenderId: "555877914999"
-};
-firebase.initializeApp(config);
 
 var d= new Date();
 var t = d.getTime();
@@ -77,6 +68,38 @@ function readName(){
       `
   });
 }
+
+
+
+function readAdd(){
+  var name= firebase.database().ref("names/");
+  name.on("child_added",function(data){
+      var nameValue=data.val();
+
+      document.getElementById("add").innerHTML+=`
+        <div class="card">
+            <div class="card-content">
+            <span class="card-title"> ${nameValue.name}</span>
+            <p>${nameValue.email}</p>
+            <p>${nameValue.phone}</p>
+            </div>
+            <div class="card-action">
+              <button type="submit" style="color:white" class="#f57f17 yellow darken-4 btn" onclick="updateName(${nameValue.id},'${nameValue.name}','${nameValue.email}','${nameValue.phone}')">
+              <i class="fas fa-edit"></i> Edit Name
+              </button>
+              <button type="submit"  class="#b71c1c red darken-4 btn" onclick="deleteName(${nameValue.id})">
+              <i class="fas fa-trash-alt"></i> Delete Name
+              </button>
+            </div>
+        </div>
+
+      `
+  });
+}
+
+
+
+
 
 // ************* RESET NAME SECTION ********//
 
