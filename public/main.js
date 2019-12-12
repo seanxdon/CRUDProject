@@ -1,13 +1,15 @@
  // Initialize Firebase
- var config = {
-  apiKey: "AIzaSyAx8S90WUXNDuAgIwe_O9IfytWQ0TnSur0",
-  authDomain: "crudmaterial-b8d0f.firebaseapp.com",
-  databaseURL: "https://crudmaterial-b8d0f.firebaseio.com",
-  projectId: "crudmaterial-b8d0f",
-  storageBucket: "",
-  messagingSenderId: "555877914999"
+ var firebaseConfig = {
+  apiKey: "AIzaSyC7ZBSlLO83lL9rI8qG0cvhhVIop5DKjqM",
+  authDomain: "crud-d6334.firebaseapp.com",
+  databaseURL: "https://crud-d6334.firebaseio.com",
+  projectId: "crud-d6334",
+  storageBucket: "crud-d6334.appspot.com",
+  messagingSenderId: "537325833789",
+  appId: "1:537325833789:web:07945bc1b6424c7a772454"
 };
-firebase.initializeApp(config);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 var d= new Date();
 var t = d.getTime();
