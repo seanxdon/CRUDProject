@@ -77,7 +77,7 @@ function readName(){
   });
 }
 
-
+// ************* ADD NAME SECTION *********//
 
 function readAdd(){
   var name= firebase.database().ref("names/");
