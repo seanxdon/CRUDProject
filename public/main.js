@@ -118,7 +118,7 @@ function reset(){
             <label class="card-title" white-text>Name</label>
             <input type="text" white-text id="name" placeholder="Name">
             <label class="card-title" white-text>email</label>
-            <input type="text" pattern="username@server.domain" white-text id="email" placeholder="Email">
+            <input type="text" white-text id="email" placeholder="Email">
             <label class="card-title" white-text>phone</label>
             <input type="number" maxlength="10" pattern="\d{10}" white-text id="phone" placeholder="Phone">
             <br>
@@ -149,7 +149,7 @@ function updateName(id,name,email,phone){
       <label class="card-title" white-text>Name</label>
       <input type="text" white-text id="name" placeholder="Name">
       <label class="card-title" white-text>email</label>
-      <input type="text" pattern="username@server.domain" white-text id="email" placeholder="Email">
+      <input type="text" white-text id="email" placeholder="Email">
       <label class="card-title" white-text>phone</label>
       <input type="number" maxlength="10" pattern="\d{10}" white-text id="phone" placeholder="Phone">
       <br>
