@@ -108,7 +108,7 @@ function readAdd(){
 
 
 
-// ************* RESET NAME SECTION ********//
+// ************* RESET NAME SECTION ********* //
 
 function reset(){
   document.getElementById("add").innerHTML=`
