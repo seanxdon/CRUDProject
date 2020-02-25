@@ -108,7 +108,7 @@ function readAdd(){
 
 
 
-// ************* RESET NAME SECTION ********* //
+// ************* RESET NAME SECTION *********//
 
 function reset(){
   document.getElementById("add").innerHTML=`
@@ -117,13 +117,13 @@ function reset(){
           <form id="form">
             <label class="card-title" white-text>Name</label>
             <input type="text" white-text id="name" placeholder="Name">
-            <label class="card-title" white-text>email</label>
+            <label class="card-title" white-text>Email</label>
             <input type="text" white-text id="email" placeholder="Email">
-            <label class="card-title" white-text>phone</label>
+            <label class="card-title" white-text>Phone</label>
             <input type="number" maxlength="10" pattern="\d{10}" white-text id="phone" placeholder="Phone">
             <br>
             <br>
-            <button type="submit" id="button1" class="#00c853 green accent-4 btn">
+            <button type="submit" id="button1" class="#00c853 light-blue lighten-3 btn">
               <i class="fas fa-plus"></i> ADD NAME
             </button>
           </form>
@@ -140,6 +140,8 @@ function reset(){
   });
 
 
+// ************* UPDATE NAME SECTION *********//
+
 }
 function updateName(id,name,email,phone){
   document.getElementById("add").innerHTML=`
@@ -148,9 +150,9 @@ function updateName(id,name,email,phone){
     <form id="form2">
       <label class="card-title" white-text>Name</label>
       <input type="text" white-text id="name" placeholder="Name">
-      <label class="card-title" white-text>email</label>
+      <label class="card-title" white-text>Email</label>
       <input type="text" white-text id="email" placeholder="Email">
-      <label class="card-title" white-text>phone</label>
+      <label class="card-title" white-text>Phone</label>
       <input type="number" maxlength="10" pattern="\d{10}" white-text id="phone" placeholder="Phone">
       <br>
       <br>
